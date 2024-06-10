@@ -11,6 +11,15 @@ movies_list = [] #find all h3 elements that have been passed through Beautiful S
 
 for movie in movies: #instantiating a for loop through the movies that have been captured by Beautiful Soup.
   movies_list.append(movie) #loop through the movies and save them to a list
-  print(movies_list)
 
-  
+movies_list.append(movie.text.strip())#loop through the movies and save them to a list. Strip out whitespaces
+
+ 
+movies_list.reverse() #reverse the list. Found this on https://unstop.com/blog/how-to-reverse-a-string-in-python. Tried it and it worked!
+ 
+with open("100_best_movies.txt", "w") as file:
+      for title in movies_list: 
+        file.write(title + "\n") #save to a text file in list format by iterating through the list writing each movie and separating with /n
+ 
+file.close()
+
